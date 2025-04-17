@@ -4,6 +4,9 @@ const volumeSlider = document.querySelector(".volume-slider input");
 
 const keysCheck = document.querySelector(".keys-check input");
 
+const tema = document.querySelector(".tema input");
+const body = document.querySelector("body");
+
 let mapedKeys = [];
 let audio = new Audio("src/tunes/a.wav");
 
@@ -50,4 +53,10 @@ const showHideKeys = () => {
     pianoKeys.forEach((key) => key.classList.toggle("hide")); /* o TOGGLE ele é um "liga/desliga", verificando se tem a classe ele retira e verificando que não tem ele adiciona */
 };
 
-keysCheck.addEventListener("click", showHideKeys)
+keysCheck.addEventListener("click", showHideKeys);
+
+/* Adicionando um fundo escuro para o body (conforto visual) */
+const escurecerFundo = () => {
+    body.classList.toggle("escuro");
+}
+tema.addEventListener("click", escurecerFundo);
