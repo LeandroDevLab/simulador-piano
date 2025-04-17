@@ -2,6 +2,7 @@ const pianoKeys = document.querySelectorAll(".piano-keys .key");
 
 const volumeSlider = document.querySelector(".volume-slider input");
 
+const keysCheck = document.querySelector(".keys-check input");
 
 let mapedKeys = [];
 let audio = new Audio("src/tunes/a.wav");
@@ -43,3 +44,10 @@ const handleVolume = (e) => {
 };
 
 volumeSlider.addEventListener("input", handleVolume);
+
+/* Adicionando uma função de mostrar e esconder os valores das teclas */
+const showHideKeys = () => {
+    pianoKeys.forEach((key) => key.classList.toggle("hide")); /* o TOGGLE ele é um "liga/desliga", verificando se tem a classe ele retira e verificando que não tem ele adiciona */
+};
+
+keysCheck.addEventListener("click", showHideKeys)
