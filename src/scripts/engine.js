@@ -1,7 +1,9 @@
 const pianoKeys = document.querySelectorAll(".piano-keys .key");
 
-let mapedKeys = [];
+const volumeSlider = document.querySelector(".volume-slider input");
 
+
+let mapedKeys = [];
 let audio = new Audio("src/tunes/a.wav");
 
 const playTune = (key) => {
@@ -31,6 +33,13 @@ document.addEventListener("keydown", (e) => {
     /* Só irá chamar o playTune IF e.key estiver contido, includes, dentro da variável(vetor) mapedKeys */
     if(mapedKeys.includes(e.key)) {
         playTune(e.key);
-    }
-    
+    }  
 });
+
+/* Adicionando um controle de volume manipulando valores de um input */
+const handleVolume = (e) => {
+    audio.volume = e.target.value;
+    /* console.log(e.target.value); verificar o valor no console */
+};
+
+volumeSlider.addEventListener("input", handleVolume);
